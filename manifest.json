@@ -110,9 +110,8 @@
       "source": "src",
       "userSettings": [{
         "name": "committer_email",
-        "description": "Email address for github commits",
-        "type": "STRING",
-        "default": "test@example.com"
+        "description": "Email address for github commits. If not set, we will use the email address set in your github profile.",
+        "type": "STRING"
       }],
       "userSettingsDisplay": "GENERATED"
     },
