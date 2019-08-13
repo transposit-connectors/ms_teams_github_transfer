@@ -17,7 +17,7 @@
       console.log(user)
       var text_match = /(\S+) (\S+)/.exec(parsed_body.text.trim());
       if (text_match) {
-		let message = api.run('this.transfer_file', { source_url: text_match[1], target_url: text_match[2], user: user }, {asUser: user.id})[0];
+		let message = api.run('this.transfer_file', { source_url: text_match[1], target_url: text_match[2] }, {asUser: user.id})[0];
         api.run("slack_webhook.post_to_response_url", {
           response_url: response_url,
           post_body: {text: message}
