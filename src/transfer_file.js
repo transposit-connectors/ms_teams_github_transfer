@@ -1,5 +1,4 @@
-(params) => {
-  
+(params) => {  
   var source = parse_github_url(params.source_url);
   var target = parse_github_url(params.target_url);
   var github_user = api.run('github.get_user_authenticated', {}, { asUser: params.user.id })[0];
@@ -12,13 +11,17 @@
     if (source_blob == null) {
       return "Couldn't copy github url " + params.source_url + " because the url is invalid.";
     }
-    var body = { committer: { name: github_user.login, email: github_user.email },
+    var userEmail = user_setting.get('committer_email');
+    var commitEmail = userEmail ? userEmail : github_user.email;
+    if (commitEmail == null) {
+      return "Please set an email address: " + env.getBuiltin().appUrl;
+    }
+    var body = { committer: { name: github_user.login, email:  },
                  message: "copied from " + params.source_url,
                  branch: target.branch,
                  content: source_blob.content
                };
     if (target_blob) {
-      console.log("hello " + target_blob);
       body["sha"] = target_blob.sha;
     }
     try {
