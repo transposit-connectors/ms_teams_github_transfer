@@ -46,9 +46,6 @@
           }, {
             "name": "filename",
             "type": "STRING"
-          }, {
-            "name": "user",
-            "type": "OBJECT"
           }],
           "js": "find_blob_object.js"
         }
@@ -65,10 +62,6 @@
             "description": "Github URL of the target file",
             "type": "STRING",
             "required": true
-          }, {
-            "name": "user",
-            "description": "User object obtained from api.user",
-            "type": "OBJECT"
           }],
           "js": "transfer_file.js"
         }

@@ -1,12 +1,12 @@
-(params) => {  
+(params) => {
   var source = parse_github_url(params.source_url);
   var target = parse_github_url(params.target_url);
-  var github_user = api.run('github.get_user_authenticated', {}, { asUser: params.user.id })[0];
+  var github_user = api.run('github.get_user_authenticated')[0];
 
   if (source && target) {
-    var source_blob = api.run("this.find_blob_object", { owner: source.owner, path: source.path, repo: source.repo, branch: source.branch, user: params.user })[0];
-    var target_blob = api.run("this.find_blob_object", { owner: target.owner, path: target.path, repo: target.repo, branch: target.branch, user: params.user })[0];
-    
+    var source_blob = api.run("this.find_blob_object", { owner: source.owner, path: source.path, repo: source.repo, branch: source.branch })[0];
+    var target_blob = api.run("this.find_blob_object", { owner: target.owner, path: target.path, repo: target.repo, branch: target.branch })[0];
+
     // check to see that source file exists:
     if (source_blob == null) {
       return "Couldn't copy github url " + params.source_url + " because the url is invalid.";
@@ -17,15 +17,15 @@
       return "Please set an email address: " + env.getBuiltin().appUrl;
     }
     var body = { committer: { name: github_user.login, email: commitEmail},
-                 message: "copied from " + params.source_url,
-                 branch: target.branch,
-                 content: source_blob.content
-               };
+      message: "copied from " + params.source_url,
+      branch: target.branch,
+      content: source_blob.content
+    };
     if (target_blob) {
       body["sha"] = target_blob.sha;
     }
     try {
-      api.run("github.add_file_to_repo", { owner: target.owner, path: target.path, repo: target.repo, $body: body }, { asUser: params.user.id });
+      api.run("github.add_file_to_repo", { owner: target.owner, path: target.path, repo: target.repo, $body: body });
     } catch(e) {
       return "Couldn't copy github url " + params.source_url + " to " + params.target_url + ": " + e;
     }
@@ -43,11 +43,11 @@
     // https://github.com/transposit-connectors/applicant_tracker/blob/master/README.md
     var url_match = /(https:\/\/)*(github.com\/)*(.+?)\/(.+?)\/blob\/(.+?)\/(.+)/.exec(url);
     if (url_match) {
-      return { owner: url_match[3], 
-               repo: url_match[4],
-               branch: url_match[5],
-               path: url_match[6]
-             };
+      return { owner: url_match[3],
+        repo: url_match[4],
+        branch: url_match[5],
+        path: url_match[6]
+      };
     }
     return null;
   }
