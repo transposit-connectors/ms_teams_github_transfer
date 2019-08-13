@@ -16,7 +16,7 @@
     if (commitEmail == null) {
       return "Please set an email address: " + env.getBuiltin().appUrl;
     }
-    var body = { committer: { name: github_user.login, email:  },
+    var body = { committer: { name: github_user.login, email: commitEmail},
                  message: "copied from " + params.source_url,
                  branch: target.branch,
                  content: source_blob.content
