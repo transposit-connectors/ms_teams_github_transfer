@@ -108,6 +108,12 @@
       }],
       "javascriptAPIVersion": "3",
       "source": "src",
+      "userSettings": [{
+        "name": "committer_email",
+        "description": "Email address for github commits",
+        "type": "STRING",
+        "default": "test@example.com"
+      }],
       "userSettingsDisplay": "GENERATED"
     },
     "description": "Transfer files between repos using a Slack slash command",
