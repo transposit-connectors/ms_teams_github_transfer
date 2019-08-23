@@ -1,4 +1,4 @@
-# GitHub Transfer
+# GitHub transfer slack command
 
 Transposit is an excellent tool to create operations that modularize frequently-used API calls in many apps. In addition, it's very simple to create a Slack command in Transposit that automates a common task. This app demonstrates combining these two features into a single Slack command that copies a GitHub file from one repo to another (or to another path in the same repo, or to another branch).
 
