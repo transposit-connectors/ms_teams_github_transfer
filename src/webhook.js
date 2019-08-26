@@ -30,7 +30,7 @@
   // find a better way to get the email address https://docs.microsoft.com/en-us/graph/api/user-get?view=graph-rest-1.0&tabs=http
   
   const body = {
-    "type": "message",
+    "type": "html",
     "text": text
   }
 
