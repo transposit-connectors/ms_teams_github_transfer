@@ -10,7 +10,7 @@
   
    const body = {
     "type": "message",
-    "text": text
+    "text": "abc"
   }
   return { 
     status_code: 200,
