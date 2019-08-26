@@ -7,7 +7,6 @@
  */
 ({ http_event }) => {
   const parsed_body = JSON.parse(http_event.body);
-  
 
     const text_match = /(\S+) (\S+) (\S+) (\S+)/.exec(parsed_body.text.trim());
     console.log(parsed_body.text.trim());
@@ -20,13 +19,12 @@
     let user = api.user({type: "google", email: userId}); 
     let text = "";
     if (user) {
-      text = "running";
-      /*
+      
       if (source_url && target_url) {
 		text = api.run('this.transfer_file', { source_url: source_url, target_url: target_url }, {asUser: user.id})[0];
       } else {
         text = 'Couldn\'t parse the source and target urls.';    
-      }*/
+      }
       
     } else {
       const setupUrl = env.getBuiltin().appUrl;
