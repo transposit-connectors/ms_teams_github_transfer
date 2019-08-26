@@ -97,7 +97,16 @@
         "requireConsumerSignin": true
       }, {
         "ref": "github.raw",
-        "requireConsumerSignin": true
+        "requireConsumerSignin": true,
+        "overrides": {
+          "swagger": {
+            "oauthConfig": {
+              "scope": "user repo repo:status write:public_key read:user gist write:repo_hook"
+            },
+            "executionLimits": {
+            }
+          }
+        }
       }],
       "javascriptAPIVersion": "3",
       "source": "src",
