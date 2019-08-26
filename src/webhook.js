@@ -21,7 +21,8 @@
         text = 'Couldn\'t parse the source and target urls.';    
       }
     } else {
-      text = 'Please configure your user at ' +  env.getBuiltin().appUrl;   
+      const setupUrl = env.getBuiltin().appUrl;
+      text = 'Please configure your user at <a href=+"'+setupUrl+'">'+setupUrl+'</a>';   
     }
   
   // TODO
