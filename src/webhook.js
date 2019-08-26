@@ -12,7 +12,13 @@
     "type": "message",
     "text": text
   }
-  return { status_code: 200, body: body };
+  return { 
+    status_code: 200,
+    body: body, 
+    headers: {
+      "content-type": "application/json",
+    }    
+  };
 /*
   setImmediate(() => {
     const text_match = /(\S+) (\S+) (\S+) (\S+)/.exec(parsed_body.text.trim());
