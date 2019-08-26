@@ -11,6 +11,15 @@
   
     // sometimes we get errant html if someone copy/pastes a command.
     command_text = command_text.replace(/<[^>]*>?/gm, '');
+  
+    
+    if command_text.contains('configure') {
+      const configure_text_match = /(\S+) (\S+) (\S+)/.exec(command_text);
+      const transposit_user_email = text_match[3];
+      const users_team_id = parsed_body.from.id;
+      text = "configured " + users_team_id + " to match with " +  transposit_user_email;
+    }
+    else {
     const text_match = /(\S+) (\S+) (\S+) (\S+)/.exec(command_text);
 
     const source_url = text_match[2];
@@ -35,6 +44,7 @@
   // TODO
   // HMAC
   // find a better way to get the email address https://docs.microsoft.com/en-us/graph/api/user-get?view=graph-rest-1.0&tabs=http
+    }
   
   const body = {
     "type": "html",
