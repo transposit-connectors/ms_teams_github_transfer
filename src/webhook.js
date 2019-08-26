@@ -7,8 +7,9 @@
  */
 ({ http_event }) => {
   const parsed_body = JSON.parse(http_event.body);
-
-    const text_match = /(\S+) (\S+) (\S+) (\S+)/.exec(parsed_body.text.trim());
+    let command_text = parsed_body.text.trim();
+    command_text = command_text.replace(/<[^>]*>?/gm, '');
+    const text_match = /(\S+) (\S+) (\S+) (\S+)/.exec(command_text);
     console.log(parsed_body.text.trim());
     const userId = text_match[4];
     const source_url = text_match[2];
