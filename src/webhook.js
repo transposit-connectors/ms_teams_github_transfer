@@ -6,10 +6,8 @@
  * https://www.transposit.com/docs/building/webhooks
  */
 ({ http_event }) => {
-  const parsed_body = JSON.parse(http_event.body)
-  const command = parsed_body.text
-
-  const parsed_body.text
+  const parsed_body = JSON.parse(http_event.body);
+  const command = parsed_body.text;
 
   setImmediate(() => {
     const text_match = /(\S+) (\S+) (\S+) (\S+)/.exec(parsed_body.text.trim());
