@@ -8,19 +8,7 @@
 ({ http_event }) => {
   const parsed_body = JSON.parse(http_event.body);
   
-   const body = {
-    "type": "message",
-    "text": "abc"
-  }
-  return { 
-    status_code: 200,
-    body: body, 
-    headers: {
-      "content-type": "application/json",
-    }    
-  };
-/*
-  setImmediate(() => {
+
     const text_match = /(\S+) (\S+) (\S+) (\S+)/.exec(parsed_body.text.trim());
     const userId = text_match[3];
     const source_url = text_match[1];
@@ -35,7 +23,6 @@
     } else {
       text = 'Please configure your user at ' +  env.getBuiltin().appUrl;   
     }
-  });
   
   // TODO
   // HMAC
@@ -45,8 +32,14 @@
     "type": "message",
     "text": text
   }
-  return { status_code: 200, body: body };
-  */
+
+  return { 
+    status_code: 200,
+    body: body, 
+    headers: {
+      "content-type": "application/json",
+    }    
+  };
 }
 
 
