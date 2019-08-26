@@ -7,8 +7,13 @@
  */
 ({ http_event }) => {
   const parsed_body = JSON.parse(http_event.body);
-  const command = parsed_body.text;
-
+  
+   const body = {
+    "type": "message",
+    "text": text
+  }
+  return { status_code: 200, body: body };
+/*
   setImmediate(() => {
     const text_match = /(\S+) (\S+) (\S+) (\S+)/.exec(parsed_body.text.trim());
     const userId = text_match[3];
@@ -35,6 +40,7 @@
     "text": text
   }
   return { status_code: 200, body: body };
+  */
 }
 
 
