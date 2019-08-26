@@ -11,9 +11,9 @@
 
     const text_match = /(\S+) (\S+) (\S+) (\S+)/.exec(parsed_body.text.trim());
     console.log(parsed_body.text.trim());
-    const userId = text_match[3];
-    const source_url = text_match[1];
-    const target_url = text_match[2];
+    const userId = text_match[4];
+    const source_url = text_match[2];
+    const target_url = text_match[3];
     console.log(userId);
     console.log(source_url);
     console.log(target_url);
