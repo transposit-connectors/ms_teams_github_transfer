@@ -23,7 +23,7 @@
     command_text = command_text.replace(/<[^>]*>?/gm, '');
     let text = '';
     const users_team_id = parsed_body.from.id;
-    const text_match = /(\S+) (\S+) (\S+)/.exec(command_text);
+    const text_match = /(\S+)[ ]+(\S+)[ ]+(\S+)/.exec(command_text);
     if (!text_match) {
         text = api.run("this.errorMessage")[0];
     } else if (command_text.indexOf('configure') > -1) {
