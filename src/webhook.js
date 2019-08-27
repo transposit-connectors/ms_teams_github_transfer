@@ -15,7 +15,7 @@
     
     if (command_text.indexOf('configure') > -1) {
       const configure_text_match = /(\S+) (\S+) (\S+)/.exec(command_text);
-      const transposit_user_email = text_match[3];
+      const transposit_user_email = configure_text_match[3];
       const users_team_id = parsed_body.from.id;
       text = "configured " + users_team_id + " to match with " +  transposit_user_email;
     }
