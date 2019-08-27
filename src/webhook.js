@@ -12,19 +12,20 @@
     // sometimes we get errant html if someone copy/pastes a command.
     command_text = command_text.replace(/<[^>]*>?/gm, '');
     let text = '';
-    
+    const users_team_id = parsed_body.from.id;
+  
     if (command_text.indexOf('configure') > -1) {
       const configure_text_match = /(\S+) (\S+) (\S+)/.exec(command_text);
-      const transposit_user_email = configure_text_match[3];
-      const users_team_id = parsed_body.from.id;
+      const transposit_user_email = configure_text_match[3];    
       text = "configured " + users_team_id + " to match with " +  transposit_user_email;
+      stash.put(users_team_id, transposit_user_email);
     }
     else {
-    const text_match = /(\S+) (\S+) (\S+) (\S+)/.exec(command_text);
+    const text_match = /(\S+) (\S+) (\S+)/.exec(command_text);
 
     const source_url = text_match[2];
     const target_url = text_match[3];
-    const userId = text_match[4];
+    const userId = stash.get(users_team_id);
   
     let user = api.user({type: "google", email: userId}); 
     
