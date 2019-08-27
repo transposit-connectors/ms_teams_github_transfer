@@ -10,7 +10,7 @@ const BOT_NAME_KEY = 'botname';
 ({
     http_event
 }) => {
-    
+
     const parsed_body = JSON.parse(http_event.body);
     let command_text = parsed_body.text.trim();
 
@@ -82,7 +82,7 @@ function errorMessage() {
     if (bot_name === null) {
         bot_name = "Bot";
     }
-    return 'Usage: '+bot_name+' <github source file> <github destination file>\n\nAlso, please configure your user at <a href="' + setupUrl + '">' + setupUrl + '</a> and then run "configure <email address>"';
+    return 'Usage: ' + bot_name + ' <github source file> <github destination file>\n\nAlso, please configure your user at <a href="' + setupUrl + '">' + setupUrl + '</a> and then run "configure <email address>"';
 }
 
 /**
