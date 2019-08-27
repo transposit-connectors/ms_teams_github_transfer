@@ -31,7 +31,7 @@
         const bot_name = text_match[1];
         text = "Configured " + users_team_id + " to match with " + transposit_user_email;
         stash.put(users_team_id, transposit_user_email);
-        stash.put(api.run("this.botNameKey"), bot_name)
+        stash.put(api.run("this.botNameKey")[0], bot_name)
     } else {
         const source_url = text_match[2];
         const target_url = text_match[3];
