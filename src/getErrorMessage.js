@@ -1,6 +1,6 @@
 (params) => {
         const setupUrl = env.getBuiltin().appUrl;
-        const bot_name = stash.get(api.run("this.botNameKey")[0]);
+        let bot_name = stash.get(api.run("this.botNameKey")[0]);
         if (bot_name === null) {
             bot_name = "Bot";
         }

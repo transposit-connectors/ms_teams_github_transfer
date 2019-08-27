@@ -1,5 +1,4 @@
 (params) => {
-  
   const BOT_NAME_KEY = 'botname';
   return BOT_NAME_KEY;
 }
