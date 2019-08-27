@@ -39,7 +39,7 @@
       
     } else {
       const setupUrl = env.getBuiltin().appUrl;
-      text = 'Please configure your user at <a href="'+setupUrl+'">'+setupUrl+'</a>';   
+      text = 'Please configure your user at <a href="'+setupUrl+'">'+setupUrl+'</a> and then run "configure <email address>"';   
     }
   
   // TODO
