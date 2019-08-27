@@ -11,7 +11,7 @@
   
     // sometimes we get errant html if someone copy/pastes a command.
     command_text = command_text.replace(/<[^>]*>?/gm, '');
-  
+    let text = '';
     
     if command_text.contains('configure') {
       const configure_text_match = /(\S+) (\S+) (\S+)/.exec(command_text);
@@ -27,7 +27,7 @@
     const userId = text_match[4];
   
     let user = api.user({type: "google", email: userId}); 
-    let text = "";
+    
     if (user) {
       
       if (source_url && target_url) {
