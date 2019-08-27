@@ -68,7 +68,7 @@
           "js": "botNameKey.js"
         }
       }, {
-        "id": "getErrorMessage",
+        "id": "errorMessage",
         "function": {
           "js": "getErrorMessage.js"
         }
