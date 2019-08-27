@@ -72,12 +72,12 @@
         }
     };
 
-    function botNameKey() {
+    this.botNameKey = function() {
         const BOT_NAME_KEY = 'botname';
         return BOT_NAME_KEY;
     }
 
-    function errorMessage() {
+    this.errorMessage = function() {
         const setupUrl = env.getBuiltin().appUrl;
         const bot_name = stash.get(this.botNameKey());
         if (bot_name === null) {
