@@ -22,7 +22,9 @@
     }
     else {
     const text_match = /(\S+) (\S+) (\S+)/.exec(command_text);
-
+    if (!text_match) {
+       text = this.errorMessage();
+    } else {
     const source_url = text_match[2];
     const target_url = text_match[3];
     const userId = stash.get(users_team_id);
@@ -36,10 +38,9 @@
       } else {
         text = 'Couldn\'t parse the source and target urls.';    
       }
-      
+    }
     } else {
-      const setupUrl = env.getBuiltin().appUrl;
-      text = 'Please configure your user at <a href="'+setupUrl+'">'+setupUrl+'</a> and then run "configure <email address>"';   
+      text = this.errorMessage();
     }
   
   // TODO
@@ -59,8 +60,13 @@
       "content-type": "application/json",
     }    
   };
+  
 }
 
+function errorMessage() {
+  const setupUrl = env.getBuiltin().appUrl;
+  return 'Please configure your user at <a href="'+setupUrl+'">'+setupUrl+'</a> and then run "configure <email address>"';   
+}
 
 /**
  * This operation is an example of a JavaScript operation deployed as a Webhook
