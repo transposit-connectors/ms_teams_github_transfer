@@ -10,6 +10,10 @@
  * For sample code and reference material, visit
  * https://www.transposit.com/docs/building/webhooks
  */
+
+
+
+
 ({http_event}) => {
 
     const parsed_body = JSON.parse(http_event.body);
@@ -72,22 +76,8 @@
         }
     };
 
-    this.botNameKey = function() {
-        const BOT_NAME_KEY = 'botname';
-        return BOT_NAME_KEY;
-    }
-
-    this.errorMessage = function() {
-        const setupUrl = env.getBuiltin().appUrl;
-        const bot_name = stash.get(this.botNameKey());
-        if (bot_name === null) {
-            bot_name = "Bot";
-        }
-        return 'Usage: ' + bot_name + ' <github source file> <github destination file>\n\nAlso, please configure your user at <a href="' + setupUrl + '">' + setupUrl + '</a> and then run "configure <email address>"';
-    }
+    
 }
-
-
 
 /**
  * This operation is an example of a JavaScript operation deployed as a Webhook

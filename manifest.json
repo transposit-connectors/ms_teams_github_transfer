@@ -62,6 +62,16 @@
           }],
           "js": "transfer_file.js"
         }
+      }, {
+        "id": "botNameKey",
+        "function": {
+          "js": "botNameKey.js"
+        }
+      }, {
+        "id": "getErrorMessage",
+        "function": {
+          "js": "getErrorMessage.js"
+        }
       }],
       "dataConnections": [{
         "ref": "slack_identify.raw",
