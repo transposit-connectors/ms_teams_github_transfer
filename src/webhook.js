@@ -13,7 +13,10 @@
     command_text = command_text.replace(/<[^>]*>?/gm, '');
     let text = '';
     const users_team_id = parsed_body.from.id;
-  
+    const text_match = /(\S+) (\S+) (\S+)/.exec(command_text);
+    if (!text_match) {
+      text = this.errorMessage();
+    }
     if (command_text.indexOf('configure') > -1) {
       const configure_text_match = /(\S+) (\S+) (\S+)/.exec(command_text);
       const transposit_user_email = configure_text_match[3];    
@@ -22,9 +25,7 @@
     }
     else {
     const text_match = /(\S+) (\S+) (\S+)/.exec(command_text);
-    if (!text_match) {
-       text = this.errorMessage();
-    } else {
+  
     const source_url = text_match[2];
     const target_url = text_match[3];
     const userId = stash.get(users_team_id);
