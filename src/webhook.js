@@ -13,7 +13,7 @@
     command_text = command_text.replace(/<[^>]*>?/gm, '');
     let text = '';
     
-    if command_text.contains('configure') {
+    if (command_text.contains('configure')) {
       const configure_text_match = /(\S+) (\S+) (\S+)/.exec(command_text);
       const transposit_user_email = text_match[3];
       const users_team_id = parsed_body.from.id;
