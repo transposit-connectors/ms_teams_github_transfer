@@ -5,11 +5,9 @@
  * For sample code and reference material, visit
  * https://www.transposit.com/docs/building/webhooks
  */
-const BOT_NAME_KEY = 'botname';
 
-({
-    http_event
-}) => {
+
+({http_event}) => {
 
     const parsed_body = JSON.parse(http_event.body);
     let command_text = parsed_body.text.trim();
@@ -21,16 +19,13 @@ const BOT_NAME_KEY = 'botname';
     const text_match = /(\S+) (\S+) (\S+)/.exec(command_text);
     if (!text_match) {
         text = this.errorMessage();
-    }
-    if (command_text.indexOf('configure') > -1) {
-        const text_match = /(\S+) (\S+) (\S+)/.exec(command_text);
+    } else if (command_text.indexOf('configure') > -1) {
         const transposit_user_email = text_match[3];
         const bot_name = text_match[1];
         text = "Configured " + users_team_id + " to match with " + transposit_user_email;
         stash.put(users_team_id, transposit_user_email);
-        stash.put(BOT_NAME_KEY, bot_name)
+        stash.put(this.botNameKey(), bot_name)
     } else {
-
         const source_url = text_match[2];
         const target_url = text_match[3];
         const userId = stash.get(users_team_id);
@@ -52,15 +47,15 @@ const BOT_NAME_KEY = 'botname';
             } else {
                 text = 'Couldn\'t parse the source and target urls.';
             }
-        }
-    } else {
-        text = this.errorMessage();
+    	} else {
+            text = this.errorMessage();
+    	}
     }
 
     const body = {
         "type": "html",
         "text": text
-    }
+    };
 
     // TODO
     // HMAC
@@ -76,9 +71,13 @@ const BOT_NAME_KEY = 'botname';
 
 }
 
+function botNameKey() {
+  const BOT_NAME_KEY = 'botname';
+  return BOT_NAME_KEY;
+}
 function errorMessage() {
     const setupUrl = env.getBuiltin().appUrl;
-    const bot_name = stash.get(BOT_NAME_KEY);
+    const bot_name = stash.get(this.botNameKey());
     if (bot_name === null) {
         bot_name = "Bot";
     }
