@@ -5,9 +5,12 @@
  * For sample code and reference material, visit
  * https://www.transposit.com/docs/building/webhooks
  */
+const BOT_NAME_KEY = 'botname';
+
 ({
     http_event
 }) => {
+    
     const parsed_body = JSON.parse(http_event.body);
     let command_text = parsed_body.text.trim();
 
@@ -22,8 +25,10 @@
     if (command_text.indexOf('configure') > -1) {
         const text_match = /(\S+) (\S+) (\S+)/.exec(command_text);
         const transposit_user_email = text_match[3];
-        text = "configured " + users_team_id + " to match with " + transposit_user_email;
+        const bot_name = text_match[1];
+        text = "Configured " + users_team_id + " to match with " + transposit_user_email;
         stash.put(users_team_id, transposit_user_email);
+        stash.put(BOT_NAME_KEY, bot_name)
     } else {
 
         const source_url = text_match[2];
@@ -73,7 +78,11 @@
 
 function errorMessage() {
     const setupUrl = env.getBuiltin().appUrl;
-    return 'Please configure your user at <a href="' + setupUrl + '">' + setupUrl + '</a> and then run "configure <email address>"';
+    const bot_name = stash.get(BOT_NAME_KEY);
+    if (bot_name === null) {
+        bot_name = "Bot";
+    }
+    return 'Usage: '+bot_name+' <github source file> <github destination file>\n\nAlso, please configure your user at <a href="' + setupUrl + '">' + setupUrl + '</a> and then run "configure <email address>"';
 }
 
 /**
