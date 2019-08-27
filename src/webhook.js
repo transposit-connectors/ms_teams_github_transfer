@@ -25,7 +25,7 @@
     const users_team_id = parsed_body.from.id;
     const text_match = /(\S+) (\S+) (\S+)/.exec(command_text);
     if (!text_match) {
-        text = api.run("this.errorMessage");
+        text = api.run("this.errorMessage")[0];
     } else if (command_text.indexOf('configure') > -1) {
         const transposit_user_email = text_match[3];
         const bot_name = text_match[1];
@@ -55,7 +55,7 @@
                 text = 'Couldn\'t parse the source and target urls.';
             }
         } else {
-            text = api.run("this.errorMessage");
+            text = api.run("this.errorMessage")[0];
         }
     }
 
