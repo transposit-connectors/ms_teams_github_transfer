@@ -25,7 +25,7 @@
 
       return {
         status_code: 200,
-        body: body,
+        body: hmac_error_body,
         headers: {
             "content-type": "application/json",
         }
