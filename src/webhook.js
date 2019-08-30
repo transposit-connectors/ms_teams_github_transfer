@@ -16,9 +16,7 @@
 
 ({http_event}) => {
     const hmac = http_event.headers.Authorization.replace('HMAC ','');
-    console.log(hmac);
-    console.log(http_event.body);
-    const hmac_result = api.run("this.calculate_hmac",{hmac: hmac, message: http_event.body});
+    const hmac_result = api.run("this.calculate_hmac",{hmac: hmac, message: http_event.body})[0].result;
     console.log(hmac_result);
     
   
