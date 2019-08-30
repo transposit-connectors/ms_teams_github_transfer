@@ -2,12 +2,14 @@
   let valid = false;
   
   var CryptoJS = require("crypto-js");
-  const expected_hmac = params.hmac;
-  const hmac = CryptoJS.HmacSHA256(params.message, env.get('secret_key'));
-  console.log(expected_hmac);
-  console.log(hmac);
   
-  const calculated_hmac = string
+  // from https://codepen.io/mmustapic/pen/jGZYKM
+  var secretKeyBytes = CryptoJS.enc.Base64.parse(env.get('secret_key'));
+  var payloadBytes = CryptoJS.enc.Utf8.parse(params.message);
+  var signatureBytes = CryptoJS.HmacSHA256(payloadBytes, secretKeyBytes);
+  var signatureBase64String = CryptoJS.enc.Base64.stringify(signatureBytes);
+  console.log(signatureBase64String);
+  valid = params.hmac == signatureBase64String
   return {
     valid: valid
   };

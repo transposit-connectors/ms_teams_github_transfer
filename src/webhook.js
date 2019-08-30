@@ -15,8 +15,10 @@
 
 
 ({http_event}) => {
-
+    const hmac = http_event.headers.authorization.replace('HMAC ','');
+    console.log(hmac);
     const parsed_body = JSON.parse(http_event.body);
+    
     let command_text = parsed_body.text.trim();
 
     // sometimes we get errant html if someone copy/pastes a command.
