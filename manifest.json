@@ -77,6 +77,20 @@
           "js": "getErrorMessage.js",
           "lang": "js"
         }
+      }, {
+        "id": "calculate_hmac",
+        "function": {
+          "parameters": [{
+            "name": "hmac",
+            "type": "STRING",
+            "required": true
+          }, {
+            "name": "message",
+            "type": "STRING"
+          }],
+          "js": "calculate_hmac.js",
+          "lang": "js"
+        }
       }],
       "dataConnections": [{
         "ref": "slack_identify.raw",
