@@ -145,7 +145,7 @@
       "appSettings": [{
         "name": "secret_key",
         "type": "STRING",
-        "default": "kDsKYOl7B/0lnBQOD9HE7rbZlxcSs0ko5F0J55Y2OMc="
+        "default": "wOYRr8XKRZsOAlo36Xn38Fav3/kWeBd86kNrD4ploO4="
       }]
     },
     "description": "Transfer files between repos using an MS teams robot",
