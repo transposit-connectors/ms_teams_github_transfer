@@ -15,7 +15,7 @@
 
 
 ({http_event}) => {
-    const hmac = http_event.headers; //.authorization.replace('HMAC ','');
+    const hmac = JSON.parse(http_event.headers); //.authorization.replace('HMAC ','');
     console.log(hmac);
     const parsed_body = JSON.parse(http_event.body);
     
