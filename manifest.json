@@ -127,7 +127,7 @@
         "overrides": {
           "swagger": {
             "oauthConfig": {
-              "scope": "user repo repo:status write:public_key read:user gist write:repo_hook"
+              "scope": "user repo read:user "
             },
             "executionLimits": {
             }
