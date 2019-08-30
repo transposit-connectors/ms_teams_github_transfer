@@ -1,4 +1,4 @@
-# GitHub Transfer
+# MS Teams GitHub Transfer
 
 Transposit is an excellent tool to create operations that modularize frequently-used API calls in many apps. In addition, it's very simple to create a Microsoft Teams command in Transposit that automates a common task. This app demonstrates combining these two features into a single Microsoft Teams outgoing webhook that copies a GitHub file from one repo to another (or to another path in the same repo, or to another branch).
 
@@ -17,7 +17,6 @@ Transposit is an excellent tool to create operations that modularize frequently-
      * The webhook URL. Go back to Transposit to get thisL. Go to **Deploy > Endpoints** and copy the webhook URL. Paste it into the Microsoft Teams application's **Callback URL** field. 
      * A description: "Copies files from one repo to the another, without leaving teams."
   * Save off the the security token that Teams provides. 
-NS8lO1kyl8wtMWc2KSdDFobeU8sW7SMT4XyVIQFae5E=
   * Go back to Transposit. Go to **Settings > App Info** and create or set the environment variable `secret_key` to the value of the security token. 
   * Test the app in Microsoft Teams by typing `@GithubFileCopier`. You should receive the "Please configure your user" message.
     * Note that due to the fact this Transposit application authenticates against a Google account (as opposed to Microsoft Teams), you need to use that account email address when you run `configure email-address` within Microsoft Teams. 

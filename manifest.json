@@ -150,6 +150,6 @@
       }]
     },
     "description": "Transfer files between repos using an MS teams robot",
-    "displayName": "GitHub transfer MS Teams command"
+    "displayName": "Microsoft Teams GitHub transfer command"
   }
 }
