@@ -46,7 +46,7 @@
     } else if (command_text.indexOf('configure') > -1) {
         const transposit_user_email = text_match[3];
         const bot_name = text_match[1];
-        text = "Configured your id to match with " + transposit_user_email;
+        text = "Configured. Will now operate as " + transposit_user_email;
         stash.put(users_team_id, transposit_user_email);
         stash.put(api.run("this.bot_name_key")[0], bot_name)
     } else {
