@@ -15,7 +15,8 @@
             },
             "type": "OBJECT"
           }],
-          "js": "webhook.js"
+          "js": "webhook.js",
+          "lang": "js"
         },
         "access": {
           "requireApiKey": true,
@@ -44,7 +45,8 @@
             "name": "filename",
             "type": "STRING"
           }],
-          "js": "find_blob_object.js"
+          "js": "find_blob_object.js",
+          "lang": "js"
         }
       }, {
         "id": "transfer_file",
@@ -60,17 +62,20 @@
             "type": "STRING",
             "required": true
           }],
-          "js": "transfer_file.js"
+          "js": "transfer_file.js",
+          "lang": "js"
         }
       }, {
         "id": "botNameKey",
         "function": {
-          "js": "botNameKey.js"
+          "js": "botNameKey.js",
+          "lang": "js"
         }
       }, {
         "id": "errorMessage",
         "function": {
-          "js": "getErrorMessage.js"
+          "js": "getErrorMessage.js",
+          "lang": "js"
         }
       }],
       "dataConnections": [{
@@ -124,7 +129,7 @@
       }],
       "userSettingsDisplay": "GENERATED"
     },
-    "description": "Transfer files between repos using a Slack slash command",
-    "displayName": "GitHub transfer slack command"
+    "description": "Transfer files between repos using an MS teams robot",
+    "displayName": "GitHub transfer MS Teams command"
   }
 }
