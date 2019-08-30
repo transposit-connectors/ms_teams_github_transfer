@@ -40,14 +40,14 @@
 
     const users_team_id = parsed_body.from.id;
     const bot_text_match = /(\S+)/.exec(command_text);
+    let bot_name = 'Bot';
     if (bot_text_match) {
-      const bot_name = bot_text_match[1];
-      stash.put(api.run("this.bot_name_key")[0], bot_name);
+        bot_name = bot_text_match[1];
     }
 
     const text_match = /(\S+) (\S+) (\S+)/.exec(command_text);
     if (!text_match) {
-        text = api.run("this.error_message")[0];
+        text = api.run("this.error_message", bot_name: bot_name)[0];
     } else if (command_text.indexOf('configure') > -1) {
         const transposit_user_email = text_match[3];
         text = "Configured. Will now operate as " + transposit_user_email;
@@ -75,7 +75,7 @@
                 text = 'Couldn\'t parse the source and target urls.';
             }
         } else {
-            text = api.run("this.error_message")[0];
+            text = api.run("this.error_message", bot_name: bot_name)[0];
         }
     }
 

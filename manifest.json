@@ -82,13 +82,14 @@
       }, {
         "id": "error_message",
         "function": {
+          "parameters": [{
+            "name": "bot_name",
+            "default": {
+              "text": "Bot"
+            },
+            "type": "STRING"
+          }],
           "js": "getErrorMessage.js",
-          "lang": "js"
-        }
-      }, {
-        "id": "bot_name_key",
-        "function": {
-          "js": "botNameKey.js",
           "lang": "js"
         }
       }],
