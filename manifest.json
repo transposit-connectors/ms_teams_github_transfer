@@ -82,13 +82,14 @@
       }, {
         "id": "error_message",
         "function": {
+          "parameters": [{
+            "name": "bot_name",
+            "default": {
+              "text": "Bot"
+            },
+            "type": "STRING"
+          }],
           "js": "getErrorMessage.js",
-          "lang": "js"
-        }
-      }, {
-        "id": "bot_name_key",
-        "function": {
-          "js": "botNameKey.js",
           "lang": "js"
         }
       }],
@@ -145,7 +146,7 @@
       "appSettings": [{
         "name": "secret_key",
         "type": "STRING",
-        "default": "wOYRr8XKRZsOAlo36Xn38Fav3/kWeBd86kNrD4ploO4="
+        "default": "NS8lO1kyl8wtMWc2KSdDFobeU8sW7SMT4XyVIQFae5E="
       }]
     },
     "description": "Transfer files between repos using an MS teams robot",
