@@ -127,7 +127,12 @@
         "description": "Email address for github commits. If not set, we will use the email address set in your github profile.",
         "type": "STRING"
       }],
-      "userSettingsDisplay": "GENERATED"
+      "userSettingsDisplay": "GENERATED",
+      "appSettings": [{
+        "name": "secret_key",
+        "type": "STRING",
+        "default": "kDsKYOl7B/0lnBQOD9HE7rbZlxcSs0ko5F0J55Y2OMc="
+      }]
     },
     "description": "Transfer files between repos using an MS teams robot",
     "displayName": "GitHub transfer MS Teams command"
