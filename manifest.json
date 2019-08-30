@@ -66,18 +66,6 @@
           "lang": "js"
         }
       }, {
-        "id": "botNameKey",
-        "function": {
-          "js": "botNameKey.js",
-          "lang": "js"
-        }
-      }, {
-        "id": "errorMessage",
-        "function": {
-          "js": "getErrorMessage.js",
-          "lang": "js"
-        }
-      }, {
         "id": "calculate_hmac",
         "function": {
           "parameters": [{
@@ -89,6 +77,18 @@
             "type": "STRING"
           }],
           "js": "calculate_hmac.js",
+          "lang": "js"
+        }
+      }, {
+        "id": "error_message",
+        "function": {
+          "js": "getErrorMessage.js",
+          "lang": "js"
+        }
+      }, {
+        "id": "bot_name_key",
+        "function": {
+          "js": "botNameKey.js",
           "lang": "js"
         }
       }],
