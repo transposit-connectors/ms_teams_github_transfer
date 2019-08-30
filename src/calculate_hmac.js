@@ -5,7 +5,7 @@
   
   // from https://codepen.io/mmustapic/pen/jGZYKM
   var secretKeyBytes = CryptoJS.enc.Base64.parse(env.get('secret_key'));
-  var payloadBytes = CryptoJS.enc.Utf8.parse(params.message+ " ");
+  var payloadBytes = CryptoJS.enc.Utf8.parse(params.message);
   var signatureBytes = CryptoJS.HmacSHA256(payloadBytes, secretKeyBytes);
   var signatureBase64String = CryptoJS.enc.Base64.stringify(signatureBytes);
   
