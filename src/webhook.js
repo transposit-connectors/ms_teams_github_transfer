@@ -41,8 +41,8 @@
     const users_team_id = parsed_body.from.id;
     const bot_text_match = /(\S+)/.exec(command_text);
     if (bot_text_match) {
-      const bot_name = text_match[1];
-      stash.put(api.run("this.bot_name_key")[0], bot_name)
+      const bot_name = bot_text_match[1];
+      stash.put(api.run("this.bot_name_key")[0], bot_name);
     }
 
     const text_match = /(\S+) (\S+) (\S+)/.exec(command_text);
