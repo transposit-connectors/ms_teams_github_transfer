@@ -47,7 +47,7 @@
 
     const text_match = /(\S+) (\S+) (\S+)/.exec(command_text);
     if (!text_match) {
-        text = api.run("this.error_message", bot_name: bot_name)[0];
+        text = api.run("this.error_message", {bot_name: bot_name})[0];
     } else if (command_text.indexOf('configure') > -1) {
         const transposit_user_email = text_match[3];
         text = "Configured. Will now operate as " + transposit_user_email;
@@ -75,7 +75,7 @@
                 text = 'Couldn\'t parse the source and target urls.';
             }
         } else {
-            text = api.run("this.error_message", bot_name: bot_name)[0];
+            text = api.run("this.error_message", {bot_name: bot_name})[0];
         }
     }
 
@@ -91,6 +91,4 @@
             "content-type": "application/json",
         }
     };
-
-
 }
