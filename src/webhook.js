@@ -11,13 +11,26 @@
  * https://www.transposit.com/docs/building/webhooks
  */
 
-
-
-
 ({http_event}) => {
     const hmac = http_event.headers.Authorization.replace('HMAC ','');
-    const hmac_result = api.run("this.calculate_hmac",{hmac: hmac, message: http_event.body})[0].valid;
-    console.log(hmac_result);
+    const hmac_valid = api.run("this.calculate_hmac",{hmac: hmac, message: http_event.body})[0].valid;
+    let text = '';
+  
+    if (!hmac_valid) {
+      text = "It looks like I can't trust you, your signature isn't valid. Contact an admin, please.";
+      const hmac_error_body = {
+        "type": "html",
+        "text": text
+      };
+
+      return {
+        status_code: 200,
+        body: body,
+        headers: {
+            "content-type": "application/json",
+        }
+      };
+    }
     
     const parsed_body = JSON.parse(http_event.body);
     
@@ -25,7 +38,7 @@
 
     // sometimes we get errant html if someone copy/pastes a command.
     command_text = command_text.replace(/<[^>]*>?/gm, '');
-    let text = '';
+
     const users_team_id = parsed_body.from.id;
     const text_match = /(\S+) (\S+) (\S+)/.exec(command_text);
     if (!text_match) {
@@ -67,10 +80,6 @@
         "type": "html",
         "text": text
     };
-
-    // TODO
-    // HMAC
-    // find a better way to get the email address https://docs.microsoft.com/en-us/graph/api/user-get?view=graph-rest-1.0&tabs=http
 
     return {
         status_code: 200,
