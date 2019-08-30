@@ -1,39 +1,38 @@
 /**
  * This operation is an example of a JavaScript operation deployed as a Webhook
- * and configured to work with Slack.
+ * and configured to work with MS Teams.
  *
  * For sample code and reference material, visit
- * https://www.transposit.com/docs/building/webhooks/**
- * This operation is an example of a JavaScript operation deployed as a Webhook
- * and configured to work with Slack.
- *
- * For sample code and reference material, visit
- * https://www.transposit.com/docs/building/webhooks
+ * https://www.transposit.com/docs/building/webhooks/
  */
-
-({http_event}) => {
-    const hmac = http_event.headers.Authorization.replace('HMAC ','');
-    const hmac_valid = api.run("this.calculate_hmac",{hmac: hmac, message: http_event.body})[0].valid;
+({
+    http_event
+}) => {
+    const hmac = http_event.headers.Authorization.replace('HMAC ', '');
+    const hmac_valid = api.run("this.calculate_hmac", {
+        hmac: hmac,
+        message: http_event.body
+    })[0].valid;
     let text = '';
-  
-    if (!hmac_valid) {
-      text = "It looks like I can't trust you, your signature isn't valid. Contact an admin, please.";
-      const hmac_error_body = {
-        "type": "html",
-        "text": text
-      };
 
-      return {
-        status_code: 200,
-        body: hmac_error_body,
-        headers: {
-            "content-type": "application/json",
-        }
-      };
+    if (!hmac_valid) {
+        text = "It looks like I can't trust you, your signature isn't valid. Contact an admin, please.";
+        const hmac_error_body = {
+            "type": "html",
+            "text": text
+        };
+
+        return {
+            status_code: 200,
+            body: hmac_error_body,
+            headers: {
+                "content-type": "application/json",
+            }
+        };
     }
-    
+
     const parsed_body = JSON.parse(http_event.body);
-    
+
     let command_text = parsed_body.text.trim();
 
     // sometimes we get errant html if someone copy/pastes a command.
@@ -89,13 +88,5 @@
         }
     };
 
-    
-}
 
-/**
- * This operation is an example of a JavaScript operation deployed as a Webhook
- * and configured to work with Slack.
- *
- * For sample code and reference material, visit
- * https://www.transposit.com/docs/building/webhooks
- */
+}
