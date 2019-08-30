@@ -149,7 +149,7 @@
         "default": "NS8lO1kyl8wtMWc2KSdDFobeU8sW7SMT4XyVIQFae5E="
       }]
     },
-    "description": "Transfer files between repos using an MS teams robot",
+    "description": "Transfer files between repos using an MS teams bot",
     "displayName": "Microsoft Teams GitHub transfer command"
   }
 }
