@@ -128,7 +128,7 @@
         "overrides": {
           "swagger": {
             "oauthConfig": {
-              "scope": "user repo read:user "
+              "scope": "user:email repo read:user "
             },
             "executionLimits": {
             }
