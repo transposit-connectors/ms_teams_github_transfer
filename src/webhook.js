@@ -32,6 +32,7 @@
     }
 
     const parsed_body = JSON.parse(http_event.body);
+    console.log(parsed_body);
 
     let command_text = parsed_body.text.trim();
 
