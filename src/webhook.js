@@ -49,10 +49,11 @@
     const verificationCode = api.run("this.random_verification_code")[0];
     stash.put(users_team_id + "-verify", verificationCode);
     stash.put(users_team_id + "-possible-email", transposit_user_email);
+    const verificationCodeEmail = "Verify your account for the Github Transfer app by typing '@" + bot_name + " verify "+verificationCode +" . \n\n(Cut and paste of the bot name doesn't work.)";
     const res = api.run("this.send_mail", {
       to: transposit_user_email,
       from: env.get("from_email"),
-      content: "Verify your account for the Github Transfer app by typing '@" + bot_name + " verify "+verificationCode +" . \n\n(Cut and paste of the bot name doesn't work.)";
+      content: verificationCodeEmail
     });
 
   } else if (command_text.indexOf('verify') > -1) {
