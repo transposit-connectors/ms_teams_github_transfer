@@ -170,6 +170,10 @@
         "name": "secret_key",
         "type": "STRING",
         "default": "NS8lO1kyl8wtMWc2KSdDFobeU8sW7SMT4XyVIQFae5E="
+      }, {
+        "name": "from_email",
+        "description": "Email to send verification emails from",
+        "type": "STRING"
       }]
     },
     "description": "Transfer files between repos using a Microsoft Teams bot",
