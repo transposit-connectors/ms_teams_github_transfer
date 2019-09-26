@@ -51,8 +51,18 @@
         text = api.run("this.error_message", {bot_name: bot_name})[0];
     } else if (command_text.indexOf('configure') > -1) {
         const transposit_user_email = text_match[3];
-        text = "Configured. Will now operate as " + transposit_user_email;
+        text = "Configured. Just sent you an email with a verification code. Please respond with 'verify <code>'";
+      const verificationCode = api.run("this.randomVerificationCode")[0];
+      stash.put(users_team_id+"-verify", verificationCode);
+    } else if (command_text.indexOf('verify') > -1) {
+      const provided_verification_code = text_match[3];
+      const expected_verification_code = stash.get(users_team_id+"-verify");
+      if (provided_verification_code === expected_verification_code) {
+        text = "Verified. Will now operate as " + transposit_user_email;
         stash.put(users_team_id, transposit_user_email);
+      } else {
+        text = "Uh-oh, I don't recognize you. Please try to configure again.";
+      }
     } else {
         const source_url = text_match[2];
         const target_url = text_match[3];

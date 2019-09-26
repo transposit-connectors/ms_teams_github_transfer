@@ -95,6 +95,26 @@
           "js": "getErrorMessage.js",
           "lang": "js"
         }
+      }, {
+        "id": "send_mail",
+        "tql": {
+          "parameters": [{
+            "name": "from",
+            "type": "STRING",
+            "required": true
+          }, {
+            "name": "to",
+            "type": "STRING",
+            "required": true
+          }],
+          "tql": "SELECT * FROM sendgrid.send_mail\n  WHERE $body=(SELECT {\n    'personalizations' : [ {\n      'to' : [ {\n        'email' : @to\n      } ],\n    } ],\n    'subject' : 'Test from sg',\n    'content' : [ {\n      'type' : 'text/plain',\n      'value' : 'Hiya'\n    }],\n    'from' : {\n      'email' : @from\n    }\n  })\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
+        }
+      }, {
+        "id": "randomVerificationCode",
+        "function": {
+          "js": "randomVerificationCode.js",
+          "lang": "js"
+        }
       }],
       "dataConnections": [{
         "ref": "slack_identify.raw",
