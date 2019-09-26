@@ -45,7 +45,7 @@
     })[0];
   } else if (command_text.indexOf('configure') > -1) {
     const transposit_user_email = text_match[3];
-    text = "Configured. Just sent you an email with a verification code. Please respond with '" + bot_name + " verify [yourcodehere]'";
+    text = "Configured. Just sent you an email with a verification code. Please respond with '@" + bot_name + " verify [yourcodehere]'";
     const verificationCode = api.run("this.randomVerificationCode")[0];
     stash.put(users_team_id + "-verify", verificationCode);
     stash.put(users_team_id + "-possible-email", transposit_user_email);
