@@ -55,7 +55,8 @@
       const verificationCode = api.run("this.randomVerificationCode")[0];
       stash.put(users_team_id+"-verify", verificationCode);
       stash.put(users_team_id+"-possible-email", transposit_user_email);
-      const res = api.run("this.send_mail",{to: transposit_user_email,from: env.from_email})
+      const res = api.run("this.send_mail",{to: transposit_user_email,from: env.from_email});
+      
     } else if (command_text.indexOf('verify') > -1) {
       const provided_verification_code = text_match[3];
       const expected_verification_code = stash.get(users_team_id+"-verify");
