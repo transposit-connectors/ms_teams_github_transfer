@@ -75,7 +75,7 @@
 
     let user = null;
     if (userId != null) {
-      let user = api.user({
+      user = api.user({
         type: "google",
         email: userId
       });
