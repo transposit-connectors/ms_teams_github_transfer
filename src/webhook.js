@@ -70,6 +70,7 @@
     const source_url = text_match[2];
     const target_url = text_match[3];
     const userId = stash.get(users_team_id);
+    console.log("founduserid: "+userId);
 
     let user = api.user({
       type: "google",
