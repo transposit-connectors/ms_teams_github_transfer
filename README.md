@@ -28,3 +28,7 @@ Transposit can help you bring the power of APIs into your chat environment. This
     * Note that the email can sometimes take a few minutes to arrive due to being on Sendgrid's free tier.
     * Note that due to the fact this Transposit application authenticates against a Google account, you need to use the google account email address when you run `configure email-address` within Microsoft Teams. 
 
+## Watch out for this
+
+  * If the webhook doesn't respond in 5 seconds you'll get an error.
+  * If you cut and paste the botname, it won't work. You have to type the botname, but you can cut and paste other commands.
