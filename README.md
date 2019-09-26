@@ -6,12 +6,15 @@ Transposit can help you bring the power of APIs into your chat environment. This
 
   * Sign up for a free Transposit account.
   * Sign up for a free Sendgrid account.
+  * You have to be an admin or able to create an application for your team. [More here](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/outgoingwebhook).
+
+## Configure Transposit
+
   * [Fork the app](https://console.transposit.com/t/transposit-sample/ms_teams_github_transfer) (find the Fork button at the top of the editor view).
   * Configure the Sendgrid data connector.
 
-## Set up Microsoft Teams
+## Configure Microsoft Teams
 
-  * You have to be an admin or able to create an application for your team. [More here](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/outgoingwebhook).
   * Go to your Microsoft Teams interface and navigate to the 'Manage your team' screen.
   * Select the Apps tab.
   * Click 'Create an outgoing webhook'.
