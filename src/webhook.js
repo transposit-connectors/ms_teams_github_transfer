@@ -62,8 +62,8 @@
         const transposit_user_email = stash.get(users_team_id+"-possible-email");
         text = "Verified. Will now operate as " + transposit_user_email;
         stash.put(users_team_id, transposit_user_email);
-        stash.remove(users_team_id+"-verify");
-        stash.remove(users_team_id+"-possible-email");
+        stash.put(users_team_id+"-verify", null);
+        stash.put(users_team_id+"-possible-email", null);
       } else {
         text = "Uh-oh, I don't recognize you. Please try to configure again.";
       }
