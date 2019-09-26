@@ -1,4 +1,4 @@
-# MS Teams GitHub Transfer
+# Microsoft Teams GitHub transfer command
 
 Transposit can help you bring the power of APIs into your chat environment. This app creates a Microsoft Teams outgoing webhook that copies a GitHub file from one repo to another (or to another path in the same repo, or to another branch). You don't even have to leave your MS Teams chat room.
 
