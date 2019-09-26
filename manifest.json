@@ -27,6 +27,7 @@
         }
       }, {
         "id": "find_blob_object",
+        "description": "finds the blob object in github",
         "function": {
           "parameters": [{
             "name": "owner",
@@ -53,6 +54,7 @@
         }
       }, {
         "id": "transfer_file",
+        "description": "actually transfers a file",
         "function": {
           "parameters": [{
             "name": "source_url",
@@ -70,6 +72,7 @@
         }
       }, {
         "id": "calculate_hmac",
+        "description": "this calculates the hmac of a message",
         "function": {
           "parameters": [{
             "name": "hmac",
@@ -84,6 +87,7 @@
         }
       }, {
         "id": "error_message",
+        "description": "displays error message and config info",
         "function": {
           "parameters": [{
             "name": "bot_name",
@@ -97,6 +101,7 @@
         }
       }, {
         "id": "send_mail",
+        "description": "sends verification email",
         "tql": {
           "parameters": [{
             "name": "from",
@@ -110,7 +115,8 @@
           "tql": "SELECT * FROM sendgrid.send_mail\n  WHERE $body=(SELECT {\n    'personalizations' : [ {\n      'to' : [ {\n        'email' : @to\n      } ],\n    } ],\n    'subject' : 'Test from sg',\n    'content' : [ {\n      'type' : 'text/plain',\n      'value' : 'Hiya'\n    }],\n    'from' : {\n      'email' : @from\n    }\n  })\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
         }
       }, {
-        "id": "randomVerificationCode",
+        "id": "random_verification_code",
+        "description": "creates a random verification code",
         "function": {
           "js": "randomVerificationCode.js",
           "lang": "js"
