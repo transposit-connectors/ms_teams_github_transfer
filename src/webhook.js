@@ -51,7 +51,8 @@
     stash.put(users_team_id + "-possible-email", transposit_user_email);
     const res = api.run("this.send_mail", {
       to: transposit_user_email,
-      from: env.get("from_email")
+      from: env.get("from_email"),
+      content: "Verify your account for the Github Transfer app by typing '@" + bot_name + " verify "+verificationCode +" . \n\n(Cut and paste of the bot name doesn't work.)";
     });
 
   } else if (command_text.indexOf('verify') > -1) {

@@ -111,8 +111,11 @@
             "name": "to",
             "type": "STRING",
             "required": true
+          }, {
+            "name": "content",
+            "type": "STRING"
           }],
-          "tql": "SELECT * FROM sendgrid.send_mail\n  WHERE $body=(SELECT {\n    'personalizations' : [ {\n      'to' : [ {\n        'email' : @to\n      } ],\n    } ],\n    'subject' : 'Test from sg',\n    'content' : [ {\n      'type' : 'text/plain',\n      'value' : 'Hiya'\n    }],\n    'from' : {\n      'email' : @from\n    }\n  })\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
+          "tql": "SELECT * FROM sendgrid.send_mail\n  WHERE $body=(SELECT {\n    'personalizations' : [ {\n      'to' : [ {\n        'email' : @to\n      } ],\n    } ],\n    'subject' : 'Verification code for Github Transfer app',\n    'content' : [ {\n      'type' : 'text/plain',\n      'value' : @content\n    }],\n    'from' : {\n      'email' : @from\n    }\n  })\n\n/*\n * For sample code and reference material, visit\n * https://www.transposit.com/docs/get-started/sql-quickstart\n */"
         }
       }, {
         "id": "random_verification_code",
